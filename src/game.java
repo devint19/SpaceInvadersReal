@@ -21,7 +21,7 @@ public class game extends PApplet{
     //initializes any vars
     public void setup () {
         playerX = 100;
-        ship = new Player(500, 900, this);
+        ship = new Player(50, 50, this);
     }
 
     //create the background and add images and make movements

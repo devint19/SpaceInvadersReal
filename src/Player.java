@@ -19,7 +19,7 @@ public class Player {
         h = (50);
         speed = (int)(Math.random()*10 + 2);
 
-        ship = p.loadImage("ship.tiff");
+        ship = p.loadImage("ship.png");
         ship.resize(w, h);
     }
 
