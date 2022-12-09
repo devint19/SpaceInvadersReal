@@ -19,11 +19,11 @@ public class Enemy {
         h = (50);
         speed = (int)(Math.random()*10 + 2);
 
-        attacker = p.loadImage("attacker.tiff");
+        attacker = p.loadImage("enemy1.png");
         attacker.resize(w, h);
     }
 
-    public void move(){
+    /*public void move(){
         //enemies can go to the side or they can go down
         //the enemies are individual objects but move together as a group
         x += speed;
@@ -34,10 +34,23 @@ public class Enemy {
         else if (x+w <= 0) {
             x = p.width;
         }
-    }
+    }*/
 
     public void display() {
         p.image(attacker, x, y);
     }
+    public float getX() {
+        return x;
+    }
+    public float getY() {
+        return y;
+    }
+    public float getW() {
+        return w;
+    }
+    public float getH() {
+        return h;
+    }
+
 
 }

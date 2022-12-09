@@ -15,23 +15,23 @@ public class Player {
         this.x = x;
         this.y = y;
         this.p = p;
-        w = (50);
-        h = (50);
-        speed = (int)(Math.random()*10 + 2);
+        w = (100);
+        h = (100);
+        speed = 6;
 
         ship = p.loadImage("ship.png");
         ship.resize(w, h);
     }
 
-    public void move(){
+    public void move(int direction){
         //the player can go side to side but cannot go up
-        x += speed;
+        x += direction * speed;
         //use system variable width from Processing window
-        if (x >= p.width) {
-            x = -w;
+        if (x+100 >= p.width) {
+            x=400;
         }
-        else if (x+w <= 0) {
-            x = p.width;
+        if (x <= 0) {
+            x=0;
         }
 
     }
@@ -39,5 +39,9 @@ public class Player {
     public void display() {
         p.image(ship, x, y);
     }
-
+    public float getX(){
+        return x;
+    }
 }
+
+
