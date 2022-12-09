@@ -17,6 +17,7 @@ public class game extends PApplet{
     float playerX;
     float newX;
     float bulletY;
+    float score;
 
 
     //set up the window size
@@ -35,6 +36,8 @@ public class game extends PApplet{
         enemy1n1 = new Enemy(50,100, this);
         enemy1n2 = new Enemy(200,100, this);
         enemy1n3 = new Enemy(350,100, this);
+
+        score = 0;
     }
 
     //create the background and add images and make movements
@@ -69,10 +72,12 @@ public class game extends PApplet{
         if (collision(bullet,enemy1n1)) {
             System.out.println("hit");
             //background(255,255,255);
+            score++;
         }
         if (collision(bullet,enemy1n2)) {
             System.out.println("hit");
             //background(255,255,255);
+            score++;
         }
         /*if (collision(bullet,enemy1n3)) {
             System.out.println("hit");
