@@ -66,16 +66,16 @@ public class game extends PApplet{
 
         if (collision(bullet,enemy1n1)) {
             System.out.println("werk");
-            background(255,255,255);
+            //background(255,255,255);
         }
         if (collision(bullet,enemy1n2)) {
             System.out.println("werk");
-            background(255,255,255);
-        }/*
+            //background(255,255,255);
+        }
         if (collision(bullet,enemy1n3)) {
             System.out.println("werk");
-            background(255,255,255);
-        }*/
+            //background(255,255,255);
+        }
 
 
 

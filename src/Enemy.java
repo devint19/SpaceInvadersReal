@@ -15,8 +15,8 @@ public class Enemy {
         this.x = x;
         this.y = y;
         this.p = p;
-        w = (50);
-        h = (50);
+        w = (100);
+        h = (100);
         speed = (int)(Math.random()*10 + 2);
 
         attacker = p.loadImage("enemy1.png");
