@@ -26,7 +26,7 @@ public class Player {
     public void move(int direction){
         //the player can go side to side but cannot go up
         x += direction * speed;
-        //use system variable width from Processing window
+
         if (x+100 >= p.width) {
             x=400;
         }

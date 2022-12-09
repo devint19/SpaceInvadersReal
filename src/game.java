@@ -39,10 +39,12 @@ public class game extends PApplet{
 
     //create the background and add images and make movements
     public void draw() {
-        fill(255,255,255);
-        text("Score", 200, 50);
-
         background(0, 0, 0);
+
+        fill(255, 255, 255);
+        textSize(25);
+        text("Score: " + score, 200, 50);
+
         ship.display();
         bullet.display(newX);
         enemy1n1.display();
@@ -65,17 +67,18 @@ public class game extends PApplet{
         }
 
         if (collision(bullet,enemy1n1)) {
-            System.out.println("werk");
+            System.out.println("hit");
             //background(255,255,255);
         }
         if (collision(bullet,enemy1n2)) {
-            System.out.println("werk");
+            System.out.println("hit");
             //background(255,255,255);
         }
-        if (collision(bullet,enemy1n3)) {
-            System.out.println("werk");
+        /*if (collision(bullet,enemy1n3)) {
+            System.out.println("hit");
             //background(255,255,255);
-        }
+            score+= 1/19;
+        }*/
 
 
 
@@ -88,6 +91,8 @@ public class game extends PApplet{
                 (b.getX() > (e.getX() + e.getW()))  ) {
 
         }*/
+        //left of one to right
+
 
         if (    (b.getX() < e.getX() + e.getW()) &&
                 (b.getX() + b.getW() > e.getX()) &&
