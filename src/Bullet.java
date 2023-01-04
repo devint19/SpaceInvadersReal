@@ -2,6 +2,7 @@ import processing.core.PApplet;
 import processing.core.PImage;
 
 public class Bullet {
+    //initialize vars
     PApplet p;
     float x;
     float y;
@@ -10,7 +11,7 @@ public class Bullet {
     float speed;
     PImage bullet;
 
-
+    //bullet constructor
     public Bullet(float x, float y, PApplet p) {
         this.x = x;
         this.y = y;
@@ -23,14 +24,19 @@ public class Bullet {
         bullet.resize(w, h);
     }
 
+    //moves the bullet "up" the screen
     public void move(){
         y -= speed;
     }
 
+    //displays the bullet - whenever bullet is newly displayed put it where the ship nose is and move it up
     public void display(float shipX) {
-        p.image(bullet, shipX, y);
+        x=shipX;
+        p.image(bullet, x, y);
         move();
     }
+
+    //return functions
     public float getX() {
         return x;
     }
@@ -43,6 +49,7 @@ public class Bullet {
     public float getH() {
         return h;
     }
+    //resets the bullet back down
     public void reset() {
         y=498;
     }

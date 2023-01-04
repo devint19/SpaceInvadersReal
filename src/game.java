@@ -8,7 +8,7 @@ public class game extends PApplet{
         PApplet.main("game");
     }
 
-    //declare any images or variables here
+    //declares any images or variables
     Player ship;
     Bullet bullet;
     Enemy enemy1n1;
@@ -29,7 +29,7 @@ public class game extends PApplet{
     public void setup () {
         newX = 237;
         playerX = 100;
-        bulletY=498;
+        bulletY = 498;
         ship = new Player(200, 550, this);
         bullet = new Bullet(237, 498, this);
 
@@ -40,20 +40,23 @@ public class game extends PApplet{
         score = 0;
     }
 
-    //create the background and add images and make movements
+    //creates the background and add images and make movements
     public void draw() {
         background(0, 0, 0);
 
+        //write score at top
         fill(255, 255, 255);
         textSize(25);
-        text("Score: " + score, 200, 50);
+        text("Score: " + (int)(score+0.5), 205, 50);
 
+        //display all objects
         ship.display();
         bullet.display(newX);
         enemy1n1.display();
         enemy1n2.display();
         enemy1n3.display();
 
+        //code for controlling the ship left and right and shooting via keyboard
         if (keyPressed && key == CODED) {
             if (keyCode == RIGHT) {
                 ship.move( 1);
@@ -61,44 +64,39 @@ public class game extends PApplet{
             if (keyCode == LEFT) {
                 ship.move(-1);
             }
+            //code for shooting
             if (keyCode == UP) {
+                //allow the image to be changed again after a shot is fired
+                enemy1n1.updateChanged();
+                enemy1n2.updateChanged();
+                enemy1n3.updateChanged();
+                //shoot bullet from nose off ship
                 newX = (float) (ship.getX()+38);
+                //bring back bullet from off-screen
                 if (bullet.getY()<-52);{
                     bullet.reset();
                 }
             }
         }
 
+        //call hit for each enemy to update image and add one point
         if (collision(bullet,enemy1n1)) {
-            System.out.println("hit");
-            //background(255,255,255);
-            score++;
+            System.out.println("hit1");
+            score += enemy1n1.hit();
         }
         if (collision(bullet,enemy1n2)) {
-            System.out.println("hit");
-            //background(255,255,255);
-            score++;
+            System.out.println("hit2");
+            score += enemy1n2.hit();
         }
-        /*if (collision(bullet,enemy1n3)) {
-            System.out.println("hit");
-            //background(255,255,255);
-            score+= 1/19;
-        }*/
-
-
+        if (collision(bullet,enemy1n3)) {
+            System.out.println("hit3");
+            score += enemy1n3.hit();
+        }
 
     }
 
     public boolean collision(Bullet b, Enemy e){
-        /*if ((    (b.getY() + b.getH()) < (e.getY())) ||
-                (b.getY() > (e.getY() + e.getH())) ||
-                ((b.getX() + b.getW()) < e.getX()) ||
-                (b.getX() > (e.getX() + e.getW()))  ) {
-
-        }*/
-        //left of one to right
-
-
+        //pass in the bullet and an enemy and check if they are overlapping
         if (    (b.getX() < e.getX() + e.getW()) &&
                 (b.getX() + b.getW() > e.getX()) &&
                 (b.getY() < e.getY() + e.getH()) &&

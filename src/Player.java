@@ -11,6 +11,7 @@ public class Player {
     PImage ship;
 
 
+    //player object constructor
     public Player(float x, float y, PApplet p) {
         this.x = x;
         this.y = y;
@@ -19,14 +20,16 @@ public class Player {
         h = (100);
         speed = 6;
 
+
         ship = p.loadImage("ship.png");
         ship.resize(w, h);
     }
 
+    //method for the ship's movement, the player can go side to side but cannot go up
     public void move(int direction){
-        //the player can go side to side but cannot go up
         x += direction * speed;
 
+        //make sure the ship stays in bounds
         if (x+100 >= p.width) {
             x=400;
         }
@@ -36,6 +39,7 @@ public class Player {
 
     }
 
+    //displays the player
     public void display() {
         p.image(ship, x, y);
     }
